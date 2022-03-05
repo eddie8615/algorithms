@@ -23,14 +23,14 @@ public class MinHeap {
         int index = realSize;
         int parent = index / 2;
         while(minHeap[index] < minHeap[parent] && index > 1){
-            if(minHeap[index] < minHeap[parent]){
-//                Swap them
-                int temp = minHeap[index];
-                minHeap[index] = minHeap[parent];
-                minHeap[parent] = temp;
-                index = parent;
-                parent = index / 2;
-            }
+
+//          Swap them
+            int temp = minHeap[index];
+            minHeap[index] = minHeap[parent];
+            minHeap[parent] = temp;
+            index = parent;
+            parent = index / 2;
+
         }
 
     }
@@ -70,7 +70,29 @@ public class MinHeap {
         return removeElement;
     }
 
+    @Override
+    public String toString(){
+        String str = "";
+        for(int i = 1; i <= realSize; i++){
+            str += String.valueOf(minHeap[i] + " ");
+        }
+        return str;
+    }
+
     public static void main(String[] args){
-        
+        MinHeap minHeap = new MinHeap(5);
+        minHeap.add(9);
+        minHeap.add(5);
+        minHeap.add(7);
+        minHeap.add(1);
+        minHeap.add(3);
+
+        System.out.println(minHeap);
+//      It prints 1 3 7 9 5 which is correct
+
+        int removed = minHeap.pop();
+        System.out.println(removed);
+        System.out.println(minHeap);
+
     }
 }
