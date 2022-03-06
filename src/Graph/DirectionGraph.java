@@ -67,6 +67,7 @@ public class DirectionGraph {
         isVisited[start] = true;
         while(!stack.isEmpty()){
             int node = stack.pop();
+            isVisited[node] = true;
             System.out.printf("Node %d visited", node);
             System.out.println();
             for(DirectedConnection conn : graph){
